@@ -1,0 +1,149 @@
+.hrv-section {
+  background: #fff;
+  padding: 72px 0;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hrv-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  padding: 0 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hrv-heading {
+  font-size: 34px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.3;
+  margin: 0;
+  text-align: left;
+}
+
+.hrv-accent { color: #6b21a8; }
+
+.hrv-arrows {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.hrv-arrows button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #6b21a8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hrv-arrows button:hover { background: #581c87; }
+
+/* Viewport: full width, clips overflow */
+.hrv-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track slides */
+.hrv-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  /* don't wrap */
+  width: max-content;
+}
+
+/* Cards */
+.hrv-card {
+  flex-shrink: 0;
+  width: 300px;
+  border-radius: 20px;
+  padding: 24px;
+  cursor: pointer;
+  background: #f5f3ff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0.55;
+  transform: scale(0.94);
+  transition: opacity 0.4s ease, transform 0.4s ease,
+              background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hrv-card-active {
+  background: #6b21a8;
+  opacity: 1;
+  transform: scale(1.04);
+  box-shadow: 0 16px 48px rgba(107, 33, 168, 0.35);
+}
+
+.hrv-card:not(.hrv-card-active):hover { opacity: 0.8; }
+
+.hrv-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hrv-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.hrv-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+.hrv-card-active .hrv-name { color: #fff; }
+
+.hrv-role {
+  font-size: 12px;
+  margin: 0;
+  color: #888;
+}
+.hrv-card-active .hrv-role { color: rgba(255,255,255,0.75); }
+
+.hrv-text {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+  color: #555;
+}
+.hrv-card-active .hrv-text {
+  color: rgba(255,255,255,0.92);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hrv-section { padding: 48px 0; }
+  .hrv-header { padding: 0 20px; }
+  .hrv-heading { font-size: 24px; }
+  .hrv-card { width: 260px; }
+}
+
+@media (max-width: 480px) {
+  .hrv-card { width: 220px; padding: 18px; }
+}

@@ -1,0 +1,127 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+#root {
+  max-width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 80px;
+  overflow-x: hidden;
+}
+
+#root.no-padding-top {
+  padding-top: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+/* Remove aggressive global font sizes — let each component control its own */
+p { margin: 0; }
+
+/* Global mobile safety */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  /* height: auto; */
+}
+
+/* Prevent any section from causing horizontal scroll */
+.hf-section, .hn-section, .hp-products, .hr-section,
+.hrv-section, .news-page, .nd-page, .about-page,
+.hp2-section, .tl-section, .footer {
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  .hf-section, .hn-section, .hr-section,
+  .hrv-section, .news-page, .nd-page, .about-page {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hp-products {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hf-inner, .hr-inner, .hn-grid,
+  .news-grid, .nd-layout, .about-content,
+  .tl-wrapper, .footer-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hp-stats {
+    flex-wrap: wrap;
+    padding: 20px 16px;
+  }
+
+  .hp-stat {
+    flex: 0 0 45%;
+    min-width: unset;
+  }
+
+  .hp-stat-divider { display: none; }
+}

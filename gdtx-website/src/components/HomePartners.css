@@ -1,0 +1,86 @@
+.hp2-section {
+  background: #fff;
+  padding: 40px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.hp2-track-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Fade masks on left & right */
+.hp2-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hp2-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+
+.hp2-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+/* Scrolling track */
+.hp2-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: hp2-scroll 28s linear infinite;
+}
+
+.hp2-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes hp2-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hp2-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  filter: grayscale(1);
+}
+
+.hp2-item:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.hp2-item img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .hp2-item img {
+    height: 36px;
+  }
+
+  .hp2-track {
+    gap: 40px;
+  }
+
+  .hp2-fade {
+    width: 60px;
+  }
+}
