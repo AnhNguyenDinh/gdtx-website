@@ -11,6 +11,7 @@ const connectDB = require('./config/database');
 const logger = require('./config/logger');
 const routes = require('./routes');
 const { errorHandler } = require('./middlewares/errorHandler');
+const initAdmin = require('./scripts/initAdmin');
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use(errorHandler);
 // Start server
 const start = async () => {
   await connectDB();
+  await initAdmin();
   app.listen(config.port, () => {
     logger.info(`${config.appName} running on port ${config.port} [${config.env}]`);
   });
